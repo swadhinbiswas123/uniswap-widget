@@ -28,15 +28,15 @@ const JsonRpcEndpoint = `https://mainnet.infura.io/v3/${infuraId}`;
 
 
 function App() {
-
+  
+  const [close, setClose] = useState(false);
 const [account, setAccount] = useState({
   address:"",
   provider: null
 })
 
-const [close, setClose] = useState(false);
 
-//In here you need add you web3 connection code
+// //In here you need add you web3 connection code
 const connect = async()=>{
 
   if (window.ethereum) {
@@ -59,7 +59,9 @@ const connect = async()=>{
   return (
     <>
     { close ? "":
+  <div className='main'>
   <div className='container'>
+    <div className='btn'><button>Connect Wallet</button></div>
     <div className='heading'>
       <div>
       <button>
@@ -88,13 +90,11 @@ const connect = async()=>{
     <div className="Uniswap">
       <SwapWidget
       theme={theme}
-      provider={account.provider}
-      JsonRpcEndpoint={JsonRpcEndpoint}
       defaultOutputTokenAddress={"0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"}
-      hideConnectionUI={true}
       width="100%"
       />
     </div>
+  </div>
   </div>
 }
   </>
