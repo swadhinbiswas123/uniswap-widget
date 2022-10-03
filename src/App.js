@@ -2,10 +2,6 @@ import { useState } from 'react';
 import { defaultTheme, SwapWidget } from '@uniswap/widgets';
 import '@uniswap/widgets/fonts.css';
 import Web3 from 'web3';
-import { HiOutlineArrowLeft } from 'react-icons/hi';
-import { HiArrowDown } from 'react-icons/hi';
-import { BiCreditCard} from 'react-icons/bi';
-import { IoClose } from 'react-icons/io5';
 import "./App.css"
 
 const theme = {
@@ -55,7 +51,7 @@ const connect = async()=>{
     }
 
    } else {
-    console.log("No wallet");
+    alert("Please install metamask")
    }
 }
 
