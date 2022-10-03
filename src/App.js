@@ -28,8 +28,7 @@ const JsonRpcEndpoint = `https://mainnet.infura.io/v3/${infuraId}`;
 
 
 function App() {
-  
-  const [close, setClose] = useState(false);
+const[isWalletConnected, setIsWalletConnected] = useState(false);
 const [account, setAccount] = useState({
   address:"",
   provider: null
@@ -51,6 +50,10 @@ const connect = async()=>{
       provider: provider
     })
 
+    if(provider.selectedAddress){
+      setIsWalletConnected(true);
+    }
+
    } else {
     console.log("No wallet");
    }
@@ -58,10 +61,9 @@ const connect = async()=>{
 
   return (
     <>
-    { close ? "":
   <div className='main'>
   <div className='container'>
-    <div className='btn'><button>Connect Wallet</button></div>
+    <div className='btn'><button onClick={connect}>{isWalletConnected ?"Wallet Connected" : "Connect Wallet"}</button></div>
     <div className="Uniswap">
       <SwapWidget
       theme={theme}
@@ -74,7 +76,6 @@ const connect = async()=>{
     </div>
   </div>
   </div>
-}
   </>
   );
 }
