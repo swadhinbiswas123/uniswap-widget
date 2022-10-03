@@ -62,35 +62,13 @@ const connect = async()=>{
   <div className='main'>
   <div className='container'>
     <div className='btn'><button>Connect Wallet</button></div>
-    <div className='heading'>
-      <div>
-      <button>
-      <HiOutlineArrowLeft style={{paddingLeft:"20px"}} onClick={()=>setClose(true)} />
-      </button>
-      </div>
-      <div>
-      <h4>Add Funds</h4>
-      </div>
-      <div>
-      <button>
-      <IoClose style={{paddingRight:"20px"}} onClick={()=>setClose(true)} />
-      </button>
-      </div>
-    </div>
-    <div className='details'>
-        <div style={{display:"flex", alignItems:"center", borderBottom:"2px solid black"}}>
-          <HiArrowDown style={{paddingRight:"10px"}}/> 
-          <h5>Swap for WETH</h5>
-        </div>
-        <div style={{display:"flex", alignItems:"center", color:"#8a8a8a",borderBottom:"1px solid #8f8181"}}>
-          <BiCreditCard style={{paddingRight:"10px"}} /> 
-          <h5>Buy WETH with card</h5> 
-        </div>
-    </div>
     <div className="Uniswap">
       <SwapWidget
       theme={theme}
       defaultOutputTokenAddress={"0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"}
+      provider={account.provider} 
+      JsonRpcProvider={JsonRpcEndpoint}
+      hideConnectionUI={true}
       width="100%"
       />
     </div>
