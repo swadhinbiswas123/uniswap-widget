@@ -11,6 +11,9 @@ button{
 
 .container{
   width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
 }
 
 .heading{
